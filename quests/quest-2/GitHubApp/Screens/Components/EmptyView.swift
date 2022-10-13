@@ -15,7 +15,7 @@ final class EmptyView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 32
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -40,6 +40,15 @@ final class EmptyView: UIView {
         return label
     }()
     
+    lazy var searchButton : UIButton = {
+        
+       let button = UIButton()
+        button.setTitle("Search", for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.backgroundColor = stackView.backgroundColor
+        return button
+    }()
+    
     init() {
         
         super.init(frame: .zero)
@@ -59,6 +68,7 @@ final class EmptyView: UIView {
 
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
+        stackView.addArrangedSubview(searchButton)
         addSubview(stackView)
     }
     
